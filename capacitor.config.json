@@ -1,0 +1,13 @@
+{
+  "appId": "com.cluckhub.app",
+  "appName": "Cluck Hub",
+  "webDir": "dist",
+  "server": {
+    "url": "https://thecluckhub.netlify.app",
+    "cleartext": false
+  },
+  "ios": {
+    "contentInset": "always",
+    "scheme": "capacitor"
+  }
+}

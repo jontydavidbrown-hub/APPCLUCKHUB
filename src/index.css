@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Base polish ---------- */
+@layer base {
+  html, body, #root {
+    @apply min-h-dvh bg-white text-slate-900;
+  }
+  ::selection {
+    @apply bg-emerald-200;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white/90 backdrop-blur-sm shadow-sm;
+  }
+}
+/* keep placeholders from getting in the way on number inputs */
+input[type="number"]::placeholder { color: transparent; opacity: 0; }
+
+/* ---------- Animations ---------- */
+@keyframes fade-slide {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-slide {
+  animation: fade-slide .35s ease-out both;
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(10px, -10px) scale(1.05); }
+  66% { transform: translate(-10px, 10px) scale(0.98); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob { animation: blob 12s infinite ease-in-out; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+
+/* === Compact, content-aware sizing for controls across cards === */
+@layer base {
+  /* Center common inline form rows */
+  .form-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem; /* 12px */
+  }
+
+  /* Gently cap control width inside cards; mobile still full width */
+  .card label > input,
+  .card label > select,
+  .card label > textarea {
+    max-width: 18rem; /* ~288px */
+    width: 100%;
+  }
+
+  /* Optional narrower/wider caps you can add per-field if needed */
+  .control-sm { max-width: 12rem; } /* 192px */
+  .control-md { max-width: 16rem; } /* 256px */
+  .control-lg { max-width: 20rem; } /* 320px */
+}
+
+/* Keep tables and long text areas unconstrained unless you opt-in */
+@layer components {
+  .control-full { max-width: none !important; }
+}
+
+/* Auto-compact cards that contain small forms; center their titles */
+@layer components {
+  /* Opt-out helper: keep a card full-width */
+  .section-full { width: auto !important; max-width: none !important; margin-inline: 0 !important; }
+  .section-title-left { text-align: left !important; }
+
+  /* Detect common card shells (your code uses both plain card shells and .card) */
+  .p-4.border.rounded-2xl.bg-white:has(> form):not(:has(table)):not(.section-full),
+  .card:has(> form):not(:has(table)):not(.section-full),
+  /* also compact when you use the utility row .form-center */
+  .p-4.border.rounded-2xl.bg-white:has(.form-center):not(.section-full),
+  .card:has(.form-center):not(.section-full) {
+    width: -moz-fit-content;
+    width: fit-content;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Center the first title line in those compact sections */
+  .p-4.border.rounded-2xl.bg-white:has(> form):not(:has(table)) > .font-medium:first-child,
+  .card:has(> form):not(:has(table)) > .font-medium:first-child,
+  .p-4.border.rounded-2xl.bg-white:has(.form-center) > .font-medium:first-child,
+  .card:has(.form-center) > .font-medium:first-child {
+    text-align: center;
+  }
+}
+
+/* Auto-place compact sections side-by-side when they fit */
+@layer components {
+  /* 1) Upgrade stacks into a responsive grid if there are compact form cards */
+  .space-y-6:has(> .p-4.border.rounded-2xl.bg-white:has(> form)),
+  .space-y-6:has(> .card:has(> form)) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    gap: 1.5rem; /* matches Tailwind space-y-6 size */
+    align-items: start;
+  }
+
+  /* 2) Cancel the vertical margins injected by space-y-* for grid children */
+  .space-y-6:has(> .p-4.border.rounded-2xl.bg-white:has(> form)) > *,
+  .space-y-6:has(> .card:has(> form)) > * {
+    margin: 0 !important;
+  }
+
+  /* 3) Make the page heading span the full row */
+  .space-y-6:has(> .p-4.border.rounded-2xl.bg-white:has(> form)) > h1,
+  .space-y-6:has(> .card:has(> form)) > h1 {
+    grid-column: 1 / -1;
+  }
+
+  /* 4) Keep big content (tables) full-width */
+  .space-y-6:has(> .p-4.border.rounded-2xl.bg-white:has(> form))
+    > .p-4.border.rounded-2xl.bg-white:has(> table),
+  .space-y-6:has(> .card:has(> form))
+    > .card:has(> table) {
+    grid-column: 1 / -1;
+  }
+}
