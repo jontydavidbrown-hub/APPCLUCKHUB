@@ -30,10 +30,25 @@ export default function LoginLightbox() {
   const visible = !user?.email;
   if (!visible) return null;
 
+  function normalizeEmail(raw: string) {
+    return raw.trim().toLowerCase();
+  }
+
+  function validEmail(raw: string) {
+    // Lightweight check; avoids brittle patterns that break on iOS keyboards
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(raw);
+  }
+
   async function doLogin() {
+    if (busy) return;
     setBusy(true); setError(null);
     try {
-      await login(email, password);
+      const cleanEmail = normalizeEmail(email);
+      if (!validEmail(cleanEmail)) {
+        setError("Please enter a valid email address.");
+        return;
+      }
+      await login(cleanEmail, password);
       const u = await me();
       setUser(u?.email ? u : null);
       setEmail(""); setPassword("");
@@ -45,9 +60,15 @@ export default function LoginLightbox() {
   }
 
   async function doSignup() {
+    if (busy) return;
     setBusy(true); setError(null);
     try {
-      await signup(email, password);
+      const cleanEmail = normalizeEmail(email);
+      if (!validEmail(cleanEmail)) {
+        setError("Please enter a valid email address.");
+        return;
+      }
+      await signup(cleanEmail, password);
       const u = await me();
       setUser(u?.email ? u : null);
       setEmail(""); setPassword("");
@@ -79,7 +100,10 @@ export default function LoginLightbox() {
               onChange={(e) => setEmail(e.target.value)}
               onKeyDown={onKey}
               placeholder="you@example.com"
-              autoComplete="username"
+              autoCapitalize="none"
+              autoCorrect="off"
+              inputMode="email"
+              autoComplete="email"
             />
           </label>
 
