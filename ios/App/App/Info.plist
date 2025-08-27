@@ -2,31 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-
-<key>UIApplicationSceneManifest</key>
-<dict>
-  <key>UIApplicationSupportsMultipleScenes</key>
-  <false/>
-  <key>UISceneConfigurations</key>
-  <dict>
-    <key>UIWindowSceneSessionRoleApplication</key>
-    <array>
-      <dict>
-        <key>UISceneConfigurationName</key>
-        <string>Default Configuration</string>
-        <key>UISceneDelegateClassName</key>
-        <string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
-      </dict>
-    </array>
-  </dict>
-</dict>
-
   <key>CFBundleExecutable</key>
   <string>$(EXECUTABLE_NAME)</string>
   <key>CFBundlePackageType</key>
   <string>APPL</string>
 
-  <!-- App Identification -->
   <key>CFBundleDisplayName</key>
   <string>The Cluck Hub</string>
   <key>CFBundleName</key>
@@ -38,13 +18,11 @@
   <key>CFBundleVersion</key>
   <string>2</string>
 
-  <!-- General -->
   <key>LSRequiresIPhoneOS</key>
   <true/>
   <key>UILaunchStoryboardName</key>
   <string>SplashScreen</string>
 
-  <!-- Supported orientations -->
   <key>UISupportedInterfaceOrientations</key>
   <array>
     <string>UIInterfaceOrientationPortrait</string>
@@ -59,23 +37,19 @@
     <string>UIInterfaceOrientationLandscapeRight</string>
   </array>
 
-  <!-- Export Compliance -->
   <key>ITSAppUsesNonExemptEncryption</key>
   <false/>
 
-  <!-- Privacy: Location usage -->
   <key>NSLocationWhenInUseUsageDescription</key>
   <string>We only use your location while you’re checked in on a farm to keep a safety log.</string>
   <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
   <string>We use your location in the background only during an active farm check-in to automatically check you out when you leave the property.</string>
 
-  <!-- Background Modes -->
   <key>UIBackgroundModes</key>
   <array>
     <string>location</string>
   </array>
 
-  <!-- Misc good defaults -->
   <key>UIViewControllerBasedStatusBarAppearance</key>
   <true/>
   <key>WKWebViewAllowsBackForwardNavigationGestures</key>
