@@ -1,10 +1,15 @@
 {
-  "appId": "com.cluckhub.app",
-  "appName": "Cluck Hub",
+  "appId": "com.jontybrown.cluckhub",
+  "appName": "The Cluck Hub",
   "webDir": "dist",
   "server": {
     "url": "https://thecluckhub.netlify.app",
-    "cleartext": false
+    "cleartext": false,
+    "allowNavigation": [
+      "thecluckhub.netlify.app",
+      "thecluckhub.com",
+      "www.thecluckhub.com"
+    ]
   },
   "ios": {
     "contentInset": "always",
