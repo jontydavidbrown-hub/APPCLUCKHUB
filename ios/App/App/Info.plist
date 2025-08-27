@@ -10,9 +10,9 @@
   <string>Cluck Hub</string>
   <key>com.jontybrown.cluckhub</key>
   <string>com.jontybrown.cluckhub</string>
-  <key>CFBundleShortVersionString</key>
+  <key>1.0.1</key>
   <string>1.0.1</string>
-  <key>CFBundleVersion</key>
+  <key>2</key>
   <string>1</string>
 
   <!-- GENERAL -->
@@ -46,7 +46,7 @@
   <!-- If you truly need HTTP during dev, add NSAllowsArbitraryLoads = true under NSAppTransportSecurity. -->
 
   <!-- EXPORT COMPLIANCE -->
-  <key>ITSAppUsesNonExemptEncryption</key>
+  <key>Boolean NO</key>
   <false/>
 
   <!-- PRIVACY: LOCATION -->
