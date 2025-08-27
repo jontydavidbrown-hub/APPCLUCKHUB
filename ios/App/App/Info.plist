@@ -2,28 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-
-  <!-- APP IDENTIFICATION -->
+  <!-- App Identification -->
   <key>CFBundleDisplayName</key>
-  <string>Cluck Hub</string>
+  <string>The Cluck Hub</string>
   <key>CFBundleName</key>
-  <string>Cluck Hub</string>
-  <key>com.jontybrown.cluckhub</key>
+  <string>The Cluck Hub</string>
+  <key>CFBundleIdentifier</key>
   <string>com.jontybrown.cluckhub</string>
-  <key>1.0.1</key>
+  <key>CFBundleShortVersionString</key>
   <string>1.0.1</string>
-  <key>2</key>
-  <string>1</string>
+  <key>CFBundleVersion</key>
+  <string>2</string>
 
-  <!-- GENERAL -->
+  <!-- General -->
   <key>LSRequiresIPhoneOS</key>
   <true/>
   <key>UILaunchStoryboardName</key>
   <string>SplashScreen</string>
-  <key>UIRequiresFullScreen</key>
-  <false/>
 
-  <!-- ORIENTATIONS -->
+  <!-- Supported orientations -->
   <key>UISupportedInterfaceOrientations</key>
   <array>
     <string>UIInterfaceOrientationPortrait</string>
@@ -38,40 +35,28 @@
     <string>UIInterfaceOrientationLandscapeRight</string>
   </array>
 
-  <!-- STATUS BAR (optional defaults) -->
-  <key>UIViewControllerBasedStatusBarAppearance</key>
-  <true/>
-
-  <!-- TRANSPORT SECURITY (HTTPS by default; leave restrictive) -->
-  <!-- If you truly need HTTP during dev, add NSAllowsArbitraryLoads = true under NSAppTransportSecurity. -->
-
-  <!-- EXPORT COMPLIANCE -->
-  <key>Boolean NO</key>
+  <!-- Export Compliance -->
+  <key>ITSAppUsesNonExemptEncryption</key>
   <false/>
 
-  <!-- PRIVACY: LOCATION -->
-  <!-- Shown when requesting When-In-Use -->
+  <!-- Privacy: Location usage -->
   <key>NSLocationWhenInUseUsageDescription</key>
   <string>We only use your location while you’re checked in on a farm to keep a safety log.</string>
-  <!-- Shown when upgrading to Always & When In Use (for geofence auto-checkout) -->
   <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
   <string>We use your location in the background only during an active farm check-in to automatically check you out when you leave the property.</string>
-  <!-- If you ever request temporary precise accuracy, you can add NSLocationTemporaryUsageDescriptionDictionary later. -->
 
-  <!-- BACKGROUND MODES (needed for geofence/exit detection) -->
+  <!-- Background Modes -->
   <key>UIBackgroundModes</key>
   <array>
     <string>location</string>
   </array>
 
-  <!-- CAPACITOR DEFAULTS / WEBVIEW -->
-  <!-- Allow arbitrary orientations per needs; Capacitor handles WebView. -->
+  <!-- Misc good defaults -->
+  <key>UIViewControllerBasedStatusBarAppearance</key>
+  <true/>
   <key>WKWebViewAllowsBackForwardNavigationGestures</key>
   <true/>
   <key>CADisableMinimumFrameDurationOnPhone</key>
   <true/>
-
-  <!-- OPTIONAL: if you use universal links or custom URL schemes, add CFBundleURLTypes here -->
-
 </dict>
 </plist>
