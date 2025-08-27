@@ -2,50 +2,76 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
-	<key>CFBundleDisplayName</key>
-	<string>Cluck Hub</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>$(MARKETING_VERSION)</string>
-	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>armv7</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<true/>
+
+  <!-- APP IDENTIFICATION -->
+  <key>CFBundleDisplayName</key>
+  <string>Cluck Hub</string>
+  <key>CFBundleName</key>
+  <string>Cluck Hub</string>
+  <key>com.jontybrown.cluckhub</key>
+  <string>com.jontybrown.cluckhub</string>
+  <key>CFBundleShortVersionString</key>
+  <string>1.0.1</string>
+  <key>CFBundleVersion</key>
+  <string>1</string>
+
+  <!-- GENERAL -->
+  <key>LSRequiresIPhoneOS</key>
+  <true/>
+  <key>UILaunchStoryboardName</key>
+  <string>SplashScreen</string>
+  <key>UIRequiresFullScreen</key>
+  <false/>
+
+  <!-- ORIENTATIONS -->
+  <key>UISupportedInterfaceOrientations</key>
+  <array>
+    <string>UIInterfaceOrientationPortrait</string>
+    <string>UIInterfaceOrientationLandscapeLeft</string>
+    <string>UIInterfaceOrientationLandscapeRight</string>
+  </array>
+  <key>UISupportedInterfaceOrientations~ipad</key>
+  <array>
+    <string>UIInterfaceOrientationPortrait</string>
+    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+    <string>UIInterfaceOrientationLandscapeLeft</string>
+    <string>UIInterfaceOrientationLandscapeRight</string>
+  </array>
+
+  <!-- STATUS BAR (optional defaults) -->
+  <key>UIViewControllerBasedStatusBarAppearance</key>
+  <true/>
+
+  <!-- TRANSPORT SECURITY (HTTPS by default; leave restrictive) -->
+  <!-- If you truly need HTTP during dev, add NSAllowsArbitraryLoads = true under NSAppTransportSecurity. -->
+
+  <!-- EXPORT COMPLIANCE -->
+  <key>ITSAppUsesNonExemptEncryption</key>
+  <false/>
+
+  <!-- PRIVACY: LOCATION -->
+  <!-- Shown when requesting When-In-Use -->
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>We only use your location while you’re checked in on a farm to keep a safety log.</string>
+  <!-- Shown when upgrading to Always & When In Use (for geofence auto-checkout) -->
+  <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+  <string>We use your location in the background only during an active farm check-in to automatically check you out when you leave the property.</string>
+  <!-- If you ever request temporary precise accuracy, you can add NSLocationTemporaryUsageDescriptionDictionary later. -->
+
+  <!-- BACKGROUND MODES (needed for geofence/exit detection) -->
+  <key>UIBackgroundModes</key>
+  <array>
+    <string>location</string>
+  </array>
+
+  <!-- CAPACITOR DEFAULTS / WEBVIEW -->
+  <!-- Allow arbitrary orientations per needs; Capacitor handles WebView. -->
+  <key>WKWebViewAllowsBackForwardNavigationGestures</key>
+  <true/>
+  <key>CADisableMinimumFrameDurationOnPhone</key>
+  <true/>
+
+  <!-- OPTIONAL: if you use universal links or custom URL schemes, add CFBundleURLTypes here -->
+
 </dict>
 </plist>
