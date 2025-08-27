@@ -4,12 +4,7 @@
   "webDir": "dist",
   "server": {
     "url": "https://thecluckhub.netlify.app",
-    "cleartext": false,
-    "allowNavigation": [
-      "thecluckhub.netlify.app",
-      "thecluckhub.com",
-      "www.thecluckhub.com"
-    ]
+    "cleartext": false
   },
   "ios": {
     "contentInset": "always",
